@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
+import time
 
 def search_google_news(keywords):
     # Generar link de busqueda
@@ -7,6 +8,12 @@ def search_google_news(keywords):
 
     # Efectuar la busqueda y analizar el resultado
     response = requests.get(search_url)
+
+    while response.status_code == 429:
+        time.sleep(5)
+
+        response = requests.get(search_url)
+
     soup = BeautifulSoup(response.text, 'lxml')
 
     # Obtener el numero de resultados
