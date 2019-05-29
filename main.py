@@ -16,12 +16,6 @@ print("Se encontraron {} temas.".format(topics_number))
 topic_objects = list()
 topic_index = 0
 
-new_list = list()
-for index in range(0, 5):
-    new_list.append(topics["Reputational Risk"][index])
-topics = { "Reputational Risk" : new_list }
-topics_number = len(topics.keys())
-
 for topic in topics.keys():
     topic_index = topic_index + 1
     topic_model = TopicModel(topic)

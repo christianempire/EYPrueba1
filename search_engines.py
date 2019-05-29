@@ -10,7 +10,7 @@ def search_google_news(keywords):
     response = requests.get(search_url)
 
     while response.status_code == 429:
-        time.sleep(5)
+        time.sleep(3600])
 
         response = requests.get(search_url)
 
